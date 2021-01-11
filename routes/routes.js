@@ -21,11 +21,18 @@ module.exports = function (app) {
             return console.log("Note added: " + newNote.title);
         });
 
+        //  save note with specific id
+        // app.get("/api/notes/:id", function(req,res) {
+        //     notes(req.params.id);
+        //     res.json(notes);
+        // });
+
+
         // // delete note with specific id
-        // app.delete("/api/notes", function(req,res) {
-        //     notes();
+        // app.delete("/api/notes/:id", function(req,res) {
+        //     notes(req.params.id);
         //     updatedb();
-        //     console.log("Deleted note");
+        //     console.log("Deleted note "+ req.params.id);
         // });
 
 
@@ -51,3 +58,28 @@ module.exports = function (app) {
         }
     });
 };
+
+
+// * DELETE `/api/notes/:id` - Should receive a query parameter containing the id of a note to delete. This means you'll need to find a way to give each note a unique `id` when it's saved. In order to delete a note, you'll need to read all notes from the `db.json` file, remove the note with the given `id` property, and then rewrite the notes to the `db.json` file.
+
+// app.get('/user/:uid/photos/:file', function (req, res) {
+//     var uid = req.params.uid
+//     var file = req.params.file
+
+//     req.user.mayViewFilesFrom(uid, function (yes) {
+//       if (yes) {
+//         res.sendFile('/uploads/' + uid + '/' + file)
+//       } else {
+//         res.status(403).send("Sorry! You can't see that.")
+//       }
+//     })
+//   })
+
+
+// // GET /user/tj
+// console.dir(req.params.name)
+// // => 'tj'
+
+// GET /file/javascripts/jquery.js
+// console.dir(req.params[0])
+// => 'javascripts/jquery.js'
