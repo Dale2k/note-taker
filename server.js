@@ -1,10 +1,10 @@
 // Require Dependencies
-const express = require("express");
+var express = require("express");
 const path = require("path");
 const fs = require("fs");
 
 // Set up express App
-const app = express();
+var app = express();
 const PORT = process.env.PORT || 3000;
 
 // set up data parsing
@@ -13,6 +13,9 @@ app.use(express.json());
 
 //static files css
 app.use(express.static(__dirname));
+
+//require app file
+require("./routes")(app);
 
 
 
