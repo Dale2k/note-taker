@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //static files css
-app.use(express.static(__dirname));
+app.use(express.static(__dirname + "./public/assets/css"));
 
 //require app file
 require("./routes")(app);
